@@ -2,123 +2,106 @@
 
 <html>
 <head>
-    <title>Hi-Fi Prototype</title>
+    <title>Final Submission</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
 </head>
 
-<body
+<script>
+	function addCluster(){
+		//reference container
+		var container = document.getElementById("container");
+		
+		//create detail element with text input as a summary
+		var a = document.createElement("details");
+		container.appendChild(a);
+		var b = document.createElement("summary");
+		var c = document.createElement("input");
+		c.type = "text";
+		b.appendChild(c);
+		a.appendChild(b);
+		
+		//create cluster delete button
+		var d = document.createElement("button");
+		d.innerHTML = "X";
+		d.addEventListener("click", function() {
+			a.remove();
+			z.remove();
+		});
+		b.appendChild(d);
+		
+		//create internals of the cluster
+		var e = document.createElement("input");
+		e.type = "checkbox";
+		e.style.marginLeft = "18px";
+		a.appendChild(e);
+		var f = document.createElement("input");
+		f.type = "text";
+		a.appendChild(f);
+		var g = document.createElement("button");
+		g.innerHTML = "X";
+		g.addEventListener("click", function() {
+			e.remove();
+			f.remove();
+			g.remove();
+			g2.remove();
+		});
+		a.appendChild(g);
+		var g2 = document.createElement("br");
+		a.appendChild(g2);
+		
+		//create new item button
+		var x = document.createElement("button");
+		x.innerHTML = "New Item";
+		x.style.marginLeft = "18px";
+		x.addEventListener("click", function() {
+			var h = document.createElement("input");
+			h.type = "checkbox";
+			h.style.marginLeft = "18px";
+			a.appendChild(h);
+			var i = document.createElement("input");
+			i.type = "text";
+			a.appendChild(i);
+			var j = document.createElement("button");
+			j.innerHTML = "X";
+			j.addEventListener("click", function() {
+				h.remove();
+				i.remove();
+				j.remove();
+				j2.remove();
+			});
+			a.appendChild(j);
+			var j2 = document.createElement("br");
+			a.appendChild(j2);
+			a.appendChild(x);
+		});
+		a.appendChild(x);
+		
+		//add a break between clusters
+		var z = document.createElement("br");
+		container.appendChild(z);
+	}
+</script>
+
+<body>
     <!-- HTML5 article tag for content -->
     <div id="content">
    
-   	<header>Hi-Fi Prototype</header>
+   	<header>Final Submission</header>
 	
    	<hr></hr>
 	
-	<details id="cluster1">
-		<summary>Cluster I</summary>
-			<input type="checkbox" id="1item1">
-			<label for="1item3">Item I</label>
-			<input type="button" onclick="notes()" value="Notes"><br>
-			<input type="checkbox" id="1item2">
-			<label for="1item3">Item II</label>
-			<input type="button" onclick="notes()" value="Notes"><br>
-			<div id="1item3div">
-				<input type="checkbox" id="1item3">
-				<label id="1item3label" for="1item3">Item III</label>
-				<input type="button" onclick="notes()" value="Notes"><br>
-			</div>
-			<input type="button" onclick="newItemFunction1()" value="New Item">
-			<input type="button" onclick="deleteItemFunction1()" value="Delete Item">
-    </details>
-
-	<details id="cluster2">
-		<summary>Cluster II</summary>
-			<input type="checkbox" id="2item1">
-			<label for="2item1">Item I</label>
-			<input type="button" onclick="notes()" value="Notes"><br>
-			<input type="checkbox" id="2item2">
-			<label for="2item2">Item II</label>
-			<input type="button" onclick="notes()" value="Notes"><br>
-			<div id="2item3div">
-				<input type="checkbox" id="2item3">
-				<label id="2item3label" for="2item3">Item III</label>
-				<input type="button" onclick="notes()" value="Notes"><br>
-			</div>
-			<input type="button" onclick="newItemFunction2()" value="New Item">
-			<input type="button" onclick="deleteItemFunction2()" value="Delete Item">
-    </details>
+	<div id="container">
 	
-	<details id="cluster3">
-		<summary>Cluster III</summary>
-			<div id="3item1div">
-				<input type="checkbox" id="3item1">
-				<label id="3item1label" for="3item1">Item I</label>
-				<input type="button" onclick="notes()" value="Notes"><br>
-			</div>
-			<input type="button" onclick="newItemFunction3()" value="New Item">
-			<input type="button" onclick="deleteItemFunction3()" value="Delete Item">
-    </details>
-
-	<input type="button" onclick="newClusterFunction()" value="New Cluster">
-	<input type="button" onclick="deleteClusterFunction()" value="Delete Cluster">
+	</div>
+	
+	<input type="button" onclick="addCluster()" value="New Cluster">
 	
 	<hr></hr>
 	
-	<footer>CS3041 - Project Assignment 4 Part C - Jacob McManus</footer>
+	<footer>CS3041 - Project Assignment 5 - Jacob McManus</footer>
 	
 	</div>
 </body>
-
-<script>
-document.getElementById("cluster3").style.display = "none";
-document.getElementById("1item3div").style.display = "none";
-document.getElementById("2item3div").style.display = "none";
-document.getElementById("3item1div").style.display = "none";
-
-function newClusterFunction() {
-	prompt("Please enter a title for your new cluster:", "Cluster III");
-	document.getElementById("cluster3").style.display = "block";
-}
-
-function deleteClusterFunction() {
-	prompt("Please enter the title to remove:", "Cluster III");
-	document.getElementById("cluster3").style.display = "none";
-}
-
-function newItemFunction1() {
-	prompt("Please enter a title for your new cluster:", "Item III");
-	document.getElementById("1item3div").style.display = "inline";
-}
-
-function deleteItemFunction1() {
-	prompt("Please enter the title to remove:", "Item III");
-	document.getElementById("1item3div").style.display = "none";
-}
-
-function newItemFunction2() {
-	prompt("Please enter a title for your new cluster:", "Item III");
-	document.getElementById("2item3div").style.display = "inline";
-}
-
-function deleteItemFunction2() {
-	prompt("Please enter the title to remove:", "Item III");
-	document.getElementById("2item3div").style.display = "none";
-}
-
-function newItemFunction3() {
-	prompt("Please enter a title for your new cluster:", "Item I");
-	document.getElementById("3item1div").style.display = "inline";
-}
-
-function deleteItemFunction3() {
-	prompt("Please enter the title to remove:", "Item I");
-	document.getElementById("3item1div").style.display = "none";
-}
-
-function notes() {
-	prompt("Please enter some notes:", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temerit");
-}
-</script>
 
 </html>
